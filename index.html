@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1561.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    span.s1 {font: 12.0px 'PingFang SC'}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span>&lt;!DOCTYPE html&gt;</p>
+<p class="p2">&lt;html&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;head&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;script language="JavaScript"&gt;</p>
+<p class="p1"><br></p>
+<p class="p2">function doPost() {</p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">   </span>// MAKE A LIST OF THE PARAMETER VALUES TO BE POSTED</p>
+<p class="p2"><span class="Apple-converted-space">   </span>var params = new Array();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">    </span>// copy this line for every set of radio buttons ... change the text (prefer) to that in your buttons after name=”</p>
+<p class="p2">params.push(radiobuttonanswer("fieldset1"));</p>
+<p class="p2">params.push(document.getElementById('dropdown1').value);</p>
+<p class="p2">params.push(radiobuttonanswer("fieldset2"));</p>
+<p class="p2">params.push(radiobuttonanswer("fieldset3"));</p>
+<p class="p2">params.push(document.getElementById('dropdown2').value);</p>
+<p class="p2">params.push(radiobuttonanswer("fieldset4"));</p>
+<p class="p2">params.push(document.getElementById('dropdown3').value);</p>
+<p class="p2">params.push(radiobuttonanswer("fieldset5"));</p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">    </span>//<span class="Apple-converted-space">  </span>THIS SENDS THE FORM RESULTS BACK TO GOOGLE</p>
+<p class="p2"><span class="Apple-converted-space">      </span>google.script.run.withSuccessHandler(onPost)</p>
+<p class="p2"><span class="Apple-converted-space">          </span>.postit(params);</p>
+<p class="p2">}</p>
+<p class="p1"><br></p>
+<p class="p2">function radiobuttonanswer(bname) { // This checks your selected choice</p>
+<p class="p2"><span class="Apple-converted-space">   </span>var answer = document.getElementsByName(bname);<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">   </span>theans ="";</p>
+<p class="p2"><span class="Apple-converted-space">   </span>for (var i = 0, length = answer.length; i &lt; length; i++) {</p>
+<p class="p2"><span class="Apple-converted-space">    </span>if (answer[i].checked) {</p>
+<p class="p2"><span class="Apple-converted-space">        </span>theans = answer[i].value;</p>
+<p class="p2"><span class="Apple-converted-space">        </span>break;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">   </span>}</p>
+<p class="p2"><span class="Apple-converted-space">   </span>// THIS WILL RETURN A MESSAGE IF NOTHING HAS BEEN SELECTED<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">   </span>if (theans.length == 0) {</p>
+<p class="p2"><span class="Apple-converted-space">      </span>alert("Answer: nothing selected for button " + bname);<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">      </span>return -1;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">   </span>}</p>
+<p class="p1"><span class="Apple-converted-space">   </span></p>
+<p class="p2"><span class="Apple-converted-space">   </span>return theans;</p>
+<p class="p1"><span class="Apple-converted-space">   </span></p>
+<p class="p2"><span class="Apple-converted-space">   </span>}</p>
+<p class="p1"><br></p>
+<p class="p1"><br></p>
+<p class="p1"><br></p>
+<p class="p2">function onPost(result) {</p>
+<p class="p2">// below is the bit that will eventually write the result</p>
+<p class="p2">document.getElementById('theresult').innerHTML = "&lt;center&gt;&lt;h3&gt;" + result + "&lt;/h3&gt;&lt;/center&gt;";</p>
+<p class="p2">}</p>
+<p class="p2">&lt;/script&gt;</p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;base target="_top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>body {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>font-family: Lato;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/intermediary/f/051ef898-1543-4d6c-bca1-af989da14d37/d8l7iwu-b1fae0d3-a72a-4e15-b9ab-f3379b36a60b.jpg");</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>h1 {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>font-weight:900;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>h2, h3, h4, h5, h6 {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 700;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span>.img {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>width: 150pt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>height: 150pt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>table label {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>display: block;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>fieldset {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>border: 0;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>table {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>margin: 0 auto;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>.people_images {</p>
+<p class="p2"><span class="Apple-converted-space">  </span>height: 600px;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>}<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p2"><span class="Apple-converted-space">   </span>&lt;/head&gt;</p>
+<p class="p1"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;h1 align="center"&gt;Which Naruto Character are You&lt;/h1&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;h2&gt;By Harman Marwah&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;h3&gt;This quiz will tell you which character you from Naruto&lt;/h3&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img src="https://www.merchandisingplaza.co.uk/223514/Poster-Naruto-Naruto-Shippuden-Split-Maxi-Poster-s.jpg" width="500" height="334" align="center" /&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;h2&gt;What Chakra Nature Fits You Best?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;fieldset&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;table&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td style="transform: translateY(-9px);"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://banner2.kisspng.com/20180626/oew/kisspng-hiruzen-sarutobi-jutsu-chakra-kraj-ognia-fire-konoha-symbol-5b32b95170d797.7416897515300508974622.jpg"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset1" value="Fire"/&gt; Fire&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://banner2.kisspng.com/20180417/flw/kisspng-asuma-sarutobi-ninja-jutsu-air-boruto-uzumaki-wound-5ad646be012d01.6130247015239922540048.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset1" value="Wind"/&gt; Wind &lt;/label&gt;&lt;br/&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://banner2.kisspng.com/20180629/fup/kisspng-naruto-uzumaki-water-naruto-rise-of-a-ninja-itach-tanggal-5b3686aebc4a12.3848828215303000787713.jpg"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset1" value="Water"/&gt; Water&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://banner2.kisspng.com/20180601/zhr/kisspng-naruto-uzumaki-orochimaru-kakuzu-earth-naruto-logo-5b11a309067017.6591512815278825050264.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset1" value="Earth"/&gt; Earth&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2">&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span></p>
+<p class="p2">&lt;/fieldset&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;h2&gt;You are Given a Very Hard Task by a teacher which is Voluntary, What do You do?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;label for="group1"&gt;&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;select name="group1" id="dropdown1"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Too much of a Drag&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;I never Give up, Give it to me&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;I don't have time to play Around&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Ok... wait, teacher what are you doing, don't leave me&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;No Thanks&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Let me first eat&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;h2&gt;Which of the Following are You?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;fieldset id="fieldset1"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label&gt;&lt;input type="radio" name="fieldset2" value="Lonely"/&gt; Lonely&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label&gt;&lt;input type="radio" name="fieldset2" value="Sad"/&gt; Sad&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label&gt;&lt;input type="radio" name="fieldset2" value="Shy"/&gt; Shy&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label&gt;&lt;input type="radio" name="fieldset2" value="Lazy"/&gt; Lazy&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label&gt;&lt;input type="radio" name="fieldset2" value="Happy"/&gt; Happy&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label&gt;&lt;input type="radio" name="fieldset2" value="Short Tempered"/&gt; Short Tempered&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">   </span>&lt;/fieldset&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space"> </span>&lt;h2&gt;What Food do you Like the Best?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span>&lt;fieldset&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span>&lt;table&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td style="transform: translateY(-9px);"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://images.britcdn.com/wp-content/uploads/2018/08/Miso-Lit-Ramen.jpg?w=1000&amp;auto=format" width="150pt" height="150"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset3" value="Ramen"/&gt; Ramen&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://www.seriouseats.com/2018/06/20180625-no-churn-vanilla-ice-cream-vicky-wasik-13-1500x1125.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset3" value="Ice Cream"/&gt; Ice Cream &lt;/label&gt;&lt;br/&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://i0.wp.com/choochoocachew.com/wp-content/uploads/2018/01/Moms-Special-Vegan-Dumplings-<span class="s1">家傳純素水餃</span>_Resize-11.jpg?fit=1080%2C720&amp;ssl=1"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="fieldset3" value="Dumpling"/&gt; Dumpling&lt;/label&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://www.visitbutlercounty.com/sites/default/files/media/photos/eateries/Flame-Barbeque-Ribs_0.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset3" value="Barbeque"/&gt; Barbeque&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">   </span>&lt;img class="img" src="https://cdn-image.foodandwine.com/sites/default/files/fwx-melted-chocolate.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset3" value="Chocolate"/&gt; Chocolate&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">   </span>&lt;img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Potato-Chips.jpg/1200px-Potato-Chips.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset3" value="Chips"/&gt; Chips&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2">&lt;/table&gt;</p>
+<p class="p1"><br></p>
+<p class="p2">&lt;/fieldset&gt;</p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;h2&gt;What would you do if you could do anything you want?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;label for="group2"&gt;&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;select name="group2" id="dropdown2"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Sleep all day&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Just eat. I have to stuff my tummy&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Hang out with friends&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Play chess&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Go wander in the forest alone&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Do work because you have to make that money&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
+<p class="p1"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;h2&gt;Which Animal do you Like the Best?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;fieldset&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;table&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Pug_-_1_year_Old.jpg" width="150pt" height="150"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="fieldset4" value="Dog"/&gt; Dog&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://amp.thisisinsider.com/images/5ba126df3cccd120008b4568-750-563.jpg"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;input type="radio" name="fieldset4" value="Snake"/&gt; Snake &lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;w=1000&amp;q=80"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset4" value="Fox"/&gt; Fox&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://www.wunderground.com/data/wximagenew/n/NickiC/640.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset4" value="Butterfly"/&gt; Butterfly&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2">&lt;/table&gt;</p>
+<p class="p2">&lt;/fieldset&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;h2&gt;You see your friends get into a Fight?&lt;/h2&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;label for="group3"&gt;&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;select name="group3" id="dropdown3"&gt;</p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Walk away, its their fight&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Step in before someone gets hurt&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Join in, its fun&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Call for help&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Yell at everyone who is fighting&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;option&gt;Grab everyone who is fighting&lt;/option&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/select&gt;</p>
+<p class="p1"><br></p>
+<p class="p2">&lt;h2&gt;Choose a Technique&lt;/h2&gt;</p>
+<p class="p2">&lt;fieldset&gt;</p>
+<p class="p2">&lt;table&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://otakukart.com/animeblog/wp-content/uploads/2018/01/naruto_rasengan___night_by_nourssj3-dba34bq.jpg" width="150pt" height="150"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset5" value="Rasengan"/&gt; Rasengan&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://wallpaperplay.com/walls/full/7/d/9/226666.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset5" value="Chidori"/&gt; Chidori &lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://vignette.wikia.nocookie.net/topstrongest/images/f/f3/Healing.png/revision/latest?cb=20170119104103"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset5" value="Healing Powers"/&gt; Healing Powers&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://vignette.wikia.nocookie.net/narutofanon/images/a/a9/Shadow_Imitation_Technique.JPG/revision/latest?cb=20120321134034"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset5" value="Shadow Possession Jutsu"/&gt; Shadow Possession Jutsu&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">     </span>&lt;/tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;tr&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;img class="img" src="https://vignette.wikia.nocookie.net/kakashiforum/images/4/45/PartialExpansionJutsu.png/revision/latest?cb=20161209162520"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset5" value="Partial Expansion Jutsu"/&gt; Partial Expansion Jutsu&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">     </span>&lt;img class="img" src="https://data.whicdn.com/images/149682529/large.jpg"&gt;</p>
+<p class="p2">&lt;label&gt;&lt;input type="radio" name="fieldset5" value="Mind Transfer Jutsu"/&gt; Mind Transfer Jutsu&lt;/label&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/td&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space"> </span></p>
+<p class="p2">&lt;/table&gt;</p>
+<p class="p2">&lt;/fieldset&gt;</p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space"> </span>&lt;div id="theresult"&gt;&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space"> </span>&lt;div id="submit" style="display: block;"&gt;</p>
+<p class="p2">&lt;input name="name1" type="button" value="SUBMIT" onClick="doPost();" style="font-size:24px;"&gt;&lt;br/&gt;</p>
+<p class="p2">&lt;/div&gt;</p>
+<p class="p1"><br></p>
+<p class="p1"><br></p>
+<p class="p2">&lt;audio controls autoplay hidden loop&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;source src="https://raw.githubusercontent.com/harditsingh/bedrijfsverlichting/master/naruto.mp3" type="audio/mpeg"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span>Your browser does not support the audio element.</p>
+<p class="p2">&lt;/audio&gt;</p>
+<p class="p1"><br></p>
+<p class="p1"><br></p>
+<p class="p1"><br></p>
+<p class="p2"><span class="Apple-converted-space">  </span>&lt;/body&gt;</p>
+<p class="p2">&lt;/html&gt;</p>
+</body>
+</html>
